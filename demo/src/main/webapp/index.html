@@ -68,9 +68,9 @@
           <form name="myForm">
             <fieldset>
               <legend>Upload on form submit</legend>
-              Username: <input type="text" name="userName" ng-model="username" size="39" required>
+              Username: <input type="text" name="userName"  ng-model="username" size="39" required>
               <i ng-show="myForm.userName.$error.required">*required</i><br>
-              Profile Picture: <input type="file" ngf-select ng-model="picFile" name="file" ngf-accept="'image/*'" required>
+              Profile Picture: <input type="file" ngf-select ngf-allow-dir="allowDir" ng-model="picFile" name="file" ngf-accept="'image/*'" required>
               <i ng-show="myForm.file.$error.required">*required</i>
               <br/>
 

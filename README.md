@@ -179,11 +179,11 @@ At least one of the `ngf-select` or `ngf-drop` are mandatory for the plugin to l
   ngf-fix-orientation="boolean" //default false, would rotate the jpeg image files that have
     // exif orientation data. See #745. Could be a boolean function like shouldFixOrientation($file) 
     // to decide wethere to fix that file or not.
+  ngf-allow-dir="boolean" // default true, allow dropping files only for Chrome webkit browser
   
   *ngf-capture="'camera'" or "'other'" // allows mobile devices to capture using camera
   *ngf-accept="'image/*'" // standard HTML accept attr, browser specific select popup window
   
-  +ngf-allow-dir="boolean" // default true, allow dropping files only for Chrome webkit browser
   +ngf-include-dir="boolean" //default false, include directories in the dropped file array. 
     //You can detect if they are directory or not by checking the type === 'directory'.
   +ngf-drag-over-class="{pattern: 'image/*', accept:'acceptClass', reject:'rejectClass', delay:100}" 

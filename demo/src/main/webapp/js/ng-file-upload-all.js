@@ -1167,6 +1167,14 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
     upload.registerModelChangeValidator(ngModel, attr, scope);
 
     var unwatches = [];
+
+    if (attrGetter('ngfAllowDir')) {
+      unwatches.push(scope.$watch(attrGetter('ngfAllowDir'), function () {
+        // This only works on Chrome
+        fileElem.attr('directory', attrGetter('ngfAllowDir', scope));
+        fileElem.attr('webkitdirectory', attrGetter('ngfAllowDir', scope));
+      }));
+    }
     if (attrGetter('ngfMultiple')) {
       unwatches.push(scope.$watch(attrGetter('ngfMultiple'), function () {
         fileElem.attr('multiple', attrGetter('ngfMultiple', scope));
