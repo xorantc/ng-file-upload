@@ -1135,6 +1135,7 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
     /** @namespace attr.ngfChange */
     /** @namespace attr.ngModel */
     /** @namespace attr.ngfModelOptions */
+    /** @namespace attr.ngfDirectory */
     /** @namespace attr.ngfMultiple */
     /** @namespace attr.ngfCapture */
     /** @namespace attr.ngfValidate */
@@ -1168,11 +1169,11 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
 
     var unwatches = [];
 
-    if (attrGetter('ngfAllowDir')) {
-      unwatches.push(scope.$watch(attrGetter('ngfAllowDir'), function () {
+    if (attrGetter('ngfDirectory')) {
+      unwatches.push(scope.$watch(attrGetter('ngfDirectory'), function () {
         // This only works on Chrome
-        fileElem.attr('directory', attrGetter('ngfAllowDir', scope));
-        fileElem.attr('webkitdirectory', attrGetter('ngfAllowDir', scope));
+        fileElem.attr('directory', attrGetter('ngfDirectory', scope));
+        fileElem.attr('webkitdirectory', attrGetter('ngfDirectory', scope));
       }));
     }
     if (attrGetter('ngfMultiple')) {
