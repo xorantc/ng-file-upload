@@ -18,6 +18,7 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
     /** @namespace attr.ngfChange */
     /** @namespace attr.ngModel */
     /** @namespace attr.ngfModelOptions */
+    /** @namespace attr.ngfAllowDir */
     /** @namespace attr.ngfMultiple */
     /** @namespace attr.ngfCapture */
     /** @namespace attr.ngfValidate */
