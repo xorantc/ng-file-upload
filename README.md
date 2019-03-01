@@ -163,30 +163,31 @@ At least one of the `ngf-select` or `ngf-drop` are mandatory for the plugin to l
   ng-model="myFiles" <!--  binds the valid selected/dropped file or files to the scope model
     could be an array or single file depending on ngf-multiple and ngf-keep values. -->
   ngf-model-options="{updateOn: 'change click drop dropUrl paste', allowInvalid: false, debounce: 0}"
-    <!--  updateOn could be used to disable resetting on click, or updating on paste, browser 
-    image drop, etc. allowInvalid default is false could allow invalid files in the model
-    debouncing will postpone model update (miliseconds). See angular ng-model-options for more details. -->
-  ngf-model-invalid="invalidFile(s)" <!--  binds the invalid selected/dropped file or files to this model. -->
-  ngf-before-model-change="beforeChange($files, ...)" <!--  called after file select/drop and before
-    model change, validation and resize is processed -->
-  ng-disabled="boolean" <!--  disables this element -->
-  ngf-select-disabled="boolean" <!--  default false, disables file select on this element -->
-  ngf-drop-disabled="boolean" <!--  default false, disables file drop on this element -->
-  ngf-multiple="boolean" <!--  default false, allows selecting multiple files -->
-  ngf-keep="true|false|'distinct'" <!--  default false, keep the previous ng-model files and 
-    append the new files. "'distinct'" removes duplicate files
-    $newFiles and $duplicateFiles are set in ngf-change/select/drop functions. -->
-  ngf-fix-orientation="boolean" <!-- default false, would rotate the jpeg image files that have
-    exif orientation data. See #745. Could be a boolean function like shouldFixOrientation($file)
-    to decide wethere to fix that file or not. -->
-
-  *ngf-capture="'camera'" or "'other'" <!--  allows mobile devices to capture using camera -->
-  *ngf-accept="'image/*'" <!--  standard HTML accept attr, browser specific select popup window -->
-
-  +ngf-allow-dir="boolean" <!--  default true, allow dropping files only for Chrome webkit browser -->
-  +ngf-include-dir="boolean" <!-- default false, include directories in the dropped file array.
-    You can detect if they are directory or not by checking the type === 'directory'. -->
-  +ngf-drag-over-class="{pattern: 'image/*', accept:'acceptClass', reject:'rejectClass', delay:100}"
+    // updateOn could be used to disable resetting on click, or updating on paste, browser image drop, etc. 
+    // allowInvalid default is false could allow invalid files in the model
+    // debouncing will postpone model update (miliseconds). See angular ng-model-options for more details.
+  ngf-model-invalid="invalidFile(s)" // binds the invalid selected/dropped file or files to this model.
+  ngf-before-model-change="beforeChange($files, ...)" // called after file select/drop and before 
+    // model change, validation and resize is processed
+  ng-disabled="boolean" // disables this element
+  ngf-select-disabled="boolean" // default false, disables file select on this element
+  ngf-drop-disabled="boolean" // default false, disables file drop on this element
+  ngf-multiple="boolean" // default false, allows selecting multiple files
+  ngf-directory="boolean" // default false, allows selecting directories on Chrome
+  ngf-keep="true|false|'distinct'" // default false, keep the previous ng-model files and 
+    // append the new files. "'distinct'" removes duplicate files
+    // $newFiles and $duplicateFiles are set in ngf-change/select/drop functions.
+  ngf-fix-orientation="boolean" //default false, would rotate the jpeg image files that have
+    // exif orientation data. See #745. Could be a boolean function like shouldFixOrientation($file) 
+    // to decide wethere to fix that file or not.
+  
+  *ngf-capture="'camera'" or "'other'" // allows mobile devices to capture using camera
+  *ngf-accept="'image/*'" // standard HTML accept attr, browser specific select popup window
+  
+  +ngf-include-dir="boolean" //default false, include directories in the dropped file array. 
+  +ngf-allow-dir="boolean" // default true, allow dropping files only for Chrome webkit browser
+    //You can detect if they are directory or not by checking the type === 'directory'.
+  +ngf-drag-over-class="{pattern: 'image/*', accept:'acceptClass', reject:'rejectClass', delay:100}" 
                     or "'myDragOverClass'" or "calcDragOverClass($event)"
     <!--  default "dragover". drag over css class behaviour. could be a string, a function
     returning class name or a json object.
