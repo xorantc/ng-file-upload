@@ -735,6 +735,8 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
         var fileList = evt.__files_ || (evt.target && evt.target.files), files = [];
         /* Handle duplicate call in  IE11 */
         if (!fileList) return;
+        // event below allows us to show a spinner/message at the start of a very large upload
+        attrGetter('ngfBeforeParsingItemsToUpload', scope, {$event: evt});
         for (var i = 0; i < fileList.length; i++) {
           files.push(fileList[i]);
         }
@@ -1967,6 +1969,8 @@ ngFileUpload.service('UploadResize', ['UploadValidate', '$q', function (UploadVa
       if (stopPropagation(scope)) evt.stopPropagation();
       if (actualDragOverClass) elem.removeClass(actualDragOverClass);
       actualDragOverClass = null;
+      // event below allows us to show a spinner/message at the start of a very large upload
+      attrGetter('ngfBeforeParsingItemsToUpload', scope, {$event: evt});
       extractFilesAndUpdateModel(evt.dataTransfer, evt, 'dropUrl');
     }, false);
     elem[0].addEventListener('paste', function (evt) {

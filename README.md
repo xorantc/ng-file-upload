@@ -202,6 +202,9 @@ At least one of the `ngf-select` or `ngf-drop` are mandatory for the plugin to l
   +ngf-hide-on-drop-not-available="boolean" <!--  default false, hides element if file drag&drop is not -->
   +ngf-enable-firefox-paste="boolean" <!--  *experimental* default false, enable firefox image paste 
     by making element contenteditable -->
+  ngf-before-parsing-items-to-upload="beforeParsingItemsToUpload($event)"
+    <!--  function called just before parsing files/folders to be uploaded.
+    Runs _before_ ngf-before-model-change so we can show a spinner for very large file/folder uploads -->
 
   ngf-resize="{width: 100, height: 100, quality: .8, type: 'image/jpeg',
                ratio: '1:2', centerCrop: true, pattern='.jpg', restoreExif: false}"
